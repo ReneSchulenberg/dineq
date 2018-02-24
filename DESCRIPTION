@@ -1,0 +1,18 @@
+Package: dineq
+Type: Package
+Title: Decomposition of (income) inequality
+Version: 0.1.0
+Date: 2018-02-01
+Author: René Schulenberg 
+Maintainer: René Schulenberg <reneschulenberg@gmail.com>
+Description: Decomposition of (income) inequality by population sub groups. 
+    For a decomposition on a single variable the mean log deviation can be used.
+    For a decomposition on multiple variables a regression based technique can be used.
+    Recentered influence function regression for marginal effects of the income distribution.
+    Some extensions to inequality functions to handle weights and/or missings.
+Depends: R (>= 2.10)
+Imports: boot (>= 1.3-20), Hmisc (>= 4.0-3)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
