@@ -51,7 +51,7 @@ ntiles.wtd <- function(x,n,weights=NULL) {
   weights_sel <- weights[missing]
   splits <- 1/n
   tile_splits <- Hmisc::wtd.quantile(x_sel, probs=c(seq(splits,1-splits, splits)), weights=weights_sel, na.rm=TRUE)
-  tiles <- as.numeric(cut(x,breaks=c(-Inf, tile_splits, Inf), right=FALSE))
+  tiles <- as.numeric(.bincode(x,breaks=c(-Inf, tile_splits, Inf), right=TRUE, include.lowest = TRUE))
   tiles[(is.na(weights))] <- NA
     }
   return(tiles)

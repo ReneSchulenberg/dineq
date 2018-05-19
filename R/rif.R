@@ -63,8 +63,7 @@ rif <- function(x, weights=NULL, method="quantile", quantile=0.5, kernel="gaussi
     df <- data.frame(x = as.numeric(x), w = as.numeric(weights))
     df <- df[stats::complete.cases(df), ,drop = FALSE]
     q <- Hmisc::wtd.quantile(df[,"x"], weights=df[, "w"], probs=quantile, na.rm=TRUE)
-    d <- stats::density(df[,"x"],kernel=kernel, weights=df[, "w"]/sum(df[, "w"]))
-    dq <- stats::approx(d$x, d$y, q)$y
+    dq <- stats::density(df[,"x"],kernel=kernel, weights=df[, "w"]/sum(df[, "w"]), from=q,to=q,n=1)$y
     RIF <- q + ((quantile - ifelse(x<q,1,0))/dq)
   }
 
