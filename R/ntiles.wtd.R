@@ -39,7 +39,7 @@ ntiles.wtd <- function(x,n,weights=NULL) {
 
     splits <- 1/n
     tile_splits <- stats::quantile(x, probs=c(seq(splits,1-splits, splits)), na.rm=TRUE)
-    tiles <- as.numeric(cut(x,breaks=c(-Inf, tile_splits, Inf), right=FALSE))
+    tiles <- as.numeric(.bincode(x,breaks=c(-Inf, tile_splits, Inf), right=TRUE, include.lowest = TRUE))
 
     } else {
 
